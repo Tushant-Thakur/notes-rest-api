@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.notesapp.model.Note;
 import com.notesapp.service.NoteService;
+import jakarta.validation.Valid;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class NoteController {
     private NoteService service;
 
     @PostMapping
-    public Note create(@RequestBody Note note) {
+    public Note create(@Valid @RequestBody Note note) {
         return service.create(note);
     }
 
